@@ -778,10 +778,10 @@ void TrainModel() {
   for (a = 0; a < num_threads; a++) pthread_join(pt[a], NULL);
   fo = fopen(output_word, "wb");
     // Save the word vectors
-    fprintf(fo, "%lld\t%lld\n", vocab_size, dim);
+    fprintf(fo, "%lld %lld\n", vocab_size, dim);
     for (a = 0; a < vocab_size; a++) {
       for (b = 0; vocab[a].word[b] != 0; b++) fputc(vocab[a].word[b], fo);
-      fputc('\t', fo);
+      fputc(' ', fo);
       for (b = 0; b < dim; b++) vec[b] = 0;
       for (b = 0; b < dim; b++) vec[b] = syn0[b + a * dim];
       if (cwe_type && vocab[a].character_size) {
@@ -793,7 +793,7 @@ void TrainModel() {
           for (c = 0; c < dim; c++) vec[c] += charv[c + charv_id * dim] / vocab[a].character_size;
         }
       }
-      for (b = 0; b < dim; b++) fprintf(fo, "%lf\t", vec[b]);
+      for (b = 0; b < dim; b++) fprintf(fo, "%lf ", vec[b]);
       fprintf(fo, "\n");
     }
   fclose(fo);
