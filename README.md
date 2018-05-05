@@ -12,7 +12,4 @@ Download paper：http://nlp.csai.tsinghua.edu.cn/~lzy/publications/ijcai2015_cha
 ## Note
 The CWE project (MIT license) is based on Google's word2vec project (Apache 2.0 License).
 
-
-by Leonard Xu
-
-leonard.xu.thu@gmail.com
+** replace 'tab' with 'space' to make the type of the output of word-level embeddings to be recognized by current popular word2vec wrapper **
